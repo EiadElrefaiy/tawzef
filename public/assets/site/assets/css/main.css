@@ -1,0 +1,310 @@
+
+
+/*--------------------------------------------------------------
+# Features Section
+--------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Cairo-Regular';
+    src: url('../fonts/alfont_com_Cairo-Regular-1.ttf') format('truetype');
+    /* You may need to adjust the path based on where you place the font file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Cairo-Regular', Arial, sans-serif;
+    /* Use Cairo-Regular as the preferred font, fallback to Arial, and then generic sans-serif */
+}
+
+.features .nav-tabs {
+    border: 0;
+}
+
+.features .nav-link {
+    border: 0;
+    padding: 25px 20px;
+    color: var(--color-secondary);
+    box-shadow: 5px 5px 25px rgba(var(--color-secondary-rgb), 0.15);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0s;
+    cursor: pointer;
+    height: 100%;
+}
+
+.features .nav-link i {
+    font-size: 32px;
+    line-height: 0;
+}
+
+.features .nav-link h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+    color: var(--color-secondary);
+}
+
+.features .nav-link:hover {
+    color: #03a4ed;
+}
+
+.features .nav-link.active {
+    transition: 0.3s;
+    background: #03a4ed linear-gradient(rgba(3, 164, 237, 0.95), rgba(3, 164, 237, 0.6));
+    border-color: #03a4ed;
+}
+
+.features .nav-link.active h4 {
+    color: var(--color-white);
+}
+
+.features .nav-link.active i {
+    color: var(--color-white) !important;
+}
+
+.features .tab-content {
+    margin-top: 30px;
+}
+
+.features .tab-pane.active {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.features .tab-pane h3 {
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--color-secondary);
+}
+
+.features .tab-pane ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features .tab-pane ul li {
+    padding-bottom: 10px;
+}
+
+.features .tab-pane ul i {
+    font-size: 24px;
+    margin-right: 4px;
+    color: #03a4ed;
+}
+
+.features .tab-pane p:last-child {
+    margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+
+.services .img {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.services .img img {
+    transition: 0.6s;
+}
+
+.services .details {
+    padding: 50px 30px;
+    margin: -100px 30px 0 30px;
+    transition: all ease-in-out 0.3s;
+    background: var(--color-white);
+    position: relative;
+    background: rgba(var(--color-white-rgb), 0.9);
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 0 25px rgba(var(--color-black-rgb), 0.1);
+}
+
+.services .details .icon {
+    margin: 0;
+    width: 72px;
+    height: 72px;
+    background: #03a4ed;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--color-white);
+    font-size: 28px;
+    transition: ease-in-out 0.3s;
+    position: absolute;
+    top: -36px;
+    left: calc(50% - 36px);
+    border: 6px solid var(--color-white);
+}
+
+.services .details h3 {
+    color: var(--color-default);
+    font-weight: 700;
+    margin: 10px 0 15px 0;
+    font-size: 22px;
+    transition: ease-in-out 0.3s;
+}
+
+.services .details p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.services .service-item:hover .details h3 {
+    color: #03a4ed;
+}
+
+.services .service-item:hover .details .icon {
+    background: var(--color-white);
+    border: 2px solid #03a4ed;
+}
+
+.services .service-item:hover .details .icon i {
+    color: #03a4ed;
+}
+
+.services .service-item:hover .img img {
+    transform: scale(1.2);
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Recent Blog Posts
+--------------------------------------------------------------*/
+
+.recent-blog-posts .post-box {
+    transition: 0.3s;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-blog-posts .post-box .post-img {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.recent-blog-posts .post-box .post-img img {
+    transition: 0.5s;
+}
+
+.recent-blog-posts .post-box .meta {
+    margin-top: 15px;
+}
+
+.recent-blog-posts .post-box .meta .post-date {
+    font-size: 15px;
+    font-weight: 400;
+    color: #03a4ed;
+}
+
+.recent-blog-posts .post-box .meta .post-author {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-secondary);
+}
+
+.recent-blog-posts .post-box .post-title {
+    font-size: 24px;
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin: 15px 0 0 0;
+    position: relative;
+    transition: 0.3s;
+}
+
+.recent-blog-posts .post-box p {
+    margin: 15px 0 0 0;
+    color: rgba(var(--color-secondary-dark-rgb), 0.7);
+}
+
+.recent-blog-posts .post-box .readmore {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.recent-blog-posts .post-box .readmore i {
+    line-height: 0;
+    margin-left: 4px;
+    font-size: 18px;
+}
+
+.recent-blog-posts .post-box:hover .post-title {
+    color: #03a4ed;
+}
+
+.recent-blog-posts .post-box:hover .post-img img {
+    transform: scale(1.1);
+}
+
+
+/*--------------------------------------------------------------
+# Testimonials Section
+--------------------------------------------------------------*/
+
+.testimonials {
+    padding: 80px 0;
+    background: url("../img/testimonials-bg.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+
+.testimonials::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--color-secondary-dark-rgb), 0.8);
+}
+
+.testimonials .section-header {
+    margin-bottom: 40px;
+}
+
+.testimonials .testimonials-carousel,
+.testimonials .testimonials-slider {
+    overflow: hidden;
+}
+
+.testimonials .testimonial-item {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.testimonials .testimonial-item .testimonial-img {
+    width: 100px;
+    border-radius: 50%;
+    border: 6px solid rgba(var(--color-white-rgb), 0.15);
+}
+
+.clients_openion {
+    height: 350;;
+}
