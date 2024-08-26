@@ -16,19 +16,16 @@ class CreateGraduationsTable extends Migration
         Schema::create('graduations', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->string('password');
             $table->string('name');
-            $table->unsignedBigInteger('faculty_id');
-            $table->string('section');
-            $table->string('grade');
             $table->string('address');
             $table->string('facebook')->nullable();
             $table->string('google')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('resume')->nullable();
+            $table->string('image')->nullable();
+            $table->string('password');
             $table->timestamps();
 
-            $table->foreign('faculty_id')->references('id')->on('faculty')->onDelete('cascade');
 
         });
     }

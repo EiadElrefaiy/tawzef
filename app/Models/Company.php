@@ -12,8 +12,8 @@ class Company extends Model
     protected $table = 'companies';
 
     protected $fillable = [
-        'username', 'name', 'state', 'city', 'address', 
-        'commercial_index', 'tax_card', 'logo'
+        'email', 'name', 'state', 'city', 'address', 
+        'commercial_index', 'tax_card', 'image'
     ];
 
     public function jobs()

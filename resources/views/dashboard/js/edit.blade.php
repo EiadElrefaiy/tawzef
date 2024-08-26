@@ -46,14 +46,7 @@ $(document).ready(function() {
                             </div>
                             <input type="file" class="form-control" id="${headerId}" name="${headerId}">
                         </div>`;
-                } else if (headerId === 'description' || headerId === 'description_eng') {
-                    const direction = headerId === 'description' ? 'rtl' : 'ltr';
-                    inputField = `
-                        <div class="form-group" dir="${direction}">
-                            <label for="${headerId}">${headerText}</label>
-                            <textarea class="form-control" id="${headerId}" name="${headerId}" rows="10">${cellValue}</textarea>
-                        </div>`;
-                } else if (headerId === 'image' && (headerText === 'Icon' || headerText === 'picture')) {
+                }  else if (headerId === 'image' && (headerText === 'Icon' || headerText === 'picture')) {
                     inputField = `
                         <div class="form-group">
                             <label for="${headerId}">${headerText}</label>
@@ -68,22 +61,62 @@ $(document).ready(function() {
                             <label for="${headerId}">${headerText}</label>
                             <input type="password" class="form-control" id="${headerId}" name="${headerId}">
                         </div>`;
-                } else if (headerId === 'login') {
-                    inputField = `
-                        <div class="form-group">
-                            <label for="${headerId}">${headerText}</label>
-                            <select class="form-control" id="${headerId}" name="${headerId}" required>
-                                <option value="login" ${cellValue === 'login' ? 'selected' : ''}>login</option>
-                                <option value="item" ${cellValue === 'item' ? 'selected' : ''}>Item</option>
-                            </select>
-                        </div>`;
                 }  else if(headerId == 'id'){
                     inputField = `
                         <div class="form-group" style="display:none;">
                             <label for="${headerId}">${headerText}</label>
                             <input type="text" class="form-control" id="${headerId}" name="${headerId}" value="${cellValue}" required>
                         </div>`;
-                } else {
+                } 
+                else if (headerId === 'state') {
+
+                var inputField = `<div class="form-group">
+                        <label for="${headerId}">${headerText}</label>
+                        <select class="form-control" id="${headerId}" name="${headerId}">`;
+
+                            inputField += `
+                            <option ${cellValue === 'القاهرة' ? 'selected' : ''} value="القاهرة">القاهرة</option>
+                            <option ${cellValue === 'الإسكندرية' ? 'selected' : ''} value="الإسكندرية">الإسكندرية</option>
+                            <option ${cellValue === 'الجيزة' ? 'selected' : ''} value="الجيزة">الجيزة</option>
+                            <option ${cellValue === 'أسوان' ? 'selected' : ''} value="أسوان">أسوان</option>
+                            <option ${cellValue === 'أسيوط' ? 'selected' : ''} value="أسيوط">أسيوط</option>
+                            <option ${cellValue === 'البحيرة' ? 'selected' : ''} value="البحيرة">البحيرة</option>
+                            <option ${cellValue === 'بني سويف' ? 'selected' : ''} value="بني سويف">بني سويف</option>
+                            <option ${cellValue === 'الدقهلية' ? 'selected' : ''} value="الدقهلية">الدقهلية</option>
+                            <option ${cellValue === 'دمياط' ? 'selected' : ''} value="دمياط">دمياط</option>
+                            <option ${cellValue === 'الفيوم' ? 'selected' : ''} value="الفيوم">الفيوم</option>
+                            <option ${cellValue === 'الغربية' ? 'selected' : ''} value="الغربية">الغربية</option>
+                            <option ${cellValue === 'الإسماعيلية' ? 'selected' : ''} value="الإسماعيلية">الإسماعيلية</option>
+                            <option ${cellValue === 'كفر الشيخ' ? 'selected' : ''} value="كفر الشيخ">كفر الشيخ</option>
+                            <option ${cellValue === 'الأقصر' ? 'selected' : ''} value="الأقصر">الأقصر</option>
+                            <option ${cellValue === 'مطروح' ? 'selected' : ''} value="مطروح">مطروح</option>
+                            <option ${cellValue === 'المنيا' ? 'selected' : ''} value="المنيا">المنيا</option>
+                            <option ${cellValue === 'المنوفية' ? 'selected' : ''} value="المنوفية">المنوفية</option>
+                            <option ${cellValue === 'الوادي الجديد' ? 'selected' : ''} value="الوادي الجديد">الوادي الجديد</option>
+                            <option ${cellValue === 'شمال سيناء' ? 'selected' : ''} value="شمال سيناء">شمال سيناء</option>
+                            <option ${cellValue === 'بورسعيد' ? 'selected' : ''} value="بورسعيد">بورسعيد</option>
+                            <option ${cellValue === 'القليوبية' ? 'selected' : ''} value="القليوبية">القليوبية</option>
+                            <option ${cellValue === 'قنا' ? 'selected' : ''} value="قنا">قنا</option>
+                            <option ${cellValue === 'البحر الأحمر' ? 'selected' : ''} value="البحر الأحمر">البحر الأحمر</option>
+                            <option ${cellValue === 'الشرقية' ? 'selected' : ''} value="الشرقية">الشرقية</option>
+                            <option ${cellValue === 'سوهاج' ? 'selected' : ''} value="سوهاج">سوهاج</option>
+                            <option ${cellValue === 'جنوب سيناء' ? 'selected' : ''} value="جنوب سيناء">جنوب سيناء</option>
+                            <option ${cellValue === 'السويس' ? 'selected' : ''} value="السويس">السويس</option>
+                            `;
+
+                        inputField += `</select></div>`;
+
+                }
+
+                else if (headerId === 'from' || headerId === 'to') {
+                    inputField = `
+                        <div class="form-group">
+                            <label for="${headerId}">${headerText}</label>
+                            <input type="number" class="form-control" id="${headerId}" name="${headerId}" min="1900" max="2100" step="1" placeholder="YYYY" value="${cellValue || ''}" required>
+                        </div>`;
+                }
+
+                else {
                     inputField = `
                         <div class="form-group">
                             <label for="${headerId}">${headerText}</label>

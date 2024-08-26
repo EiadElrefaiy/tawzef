@@ -23,6 +23,11 @@ Route::get('locale/{locale}', [App\Http\Controllers\Website\LocaleController::cl
 Route::post('/create-newsletter', [App\Http\Controllers\CRUD\CreateController::class, 'createNewsLetter'])->name('newsletter.create');
 Route::post('/create-message', [App\Http\Controllers\CRUD\CreateController::class, 'createMessage'])->name('messages.create');
 */
+
+    Route::get('/', function () {
+        return view('index');
+    })->name('index');
+
 Route::middleware('auth')->group(function () {
     
     Route::get('/dashboard', [App\Http\Controllers\DashHomeController::class, 'getAllData'])->name('dashboard');

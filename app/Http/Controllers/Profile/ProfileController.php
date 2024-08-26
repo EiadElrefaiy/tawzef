@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
@@ -15,8 +15,7 @@ class ProfileController extends Controller
     {
         // Validate the form data
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . auth()->id(),
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image file
         ]);
@@ -29,7 +28,7 @@ class ProfileController extends Controller
         }
 
         // Retrieve the authenticated user
-        $admin = Admin::find(Auth::guard('admin')->user()->id);
+        $admin = User::find(Auth::user()->id);
 
         // Check if there is an existing image and delete it
         if ($request->hasFile('image')) {
@@ -41,7 +40,7 @@ class ProfileController extends Controller
             $fileName = time() . '.' . $request->file('image')->extension();
 
             // Define the destination path in the public directory
-            $table = 'admins'; // Replace with your actual table name or variable
+            $table = 'users'; // Replace with your actual table name or variable
             $destinationPath = public_path('images/' . $table);
 
             // Ensure the destination directory exists
@@ -57,8 +56,7 @@ class ProfileController extends Controller
         }
 
         // Update other profile fields
-        $admin->first_name = $request->input('first_name');
-        $admin->last_name = $request->input('last_name');
+        $admin->name = $request->input('name');
         $admin->email = $request->input('email');
         $admin->save();
 
@@ -76,7 +74,7 @@ class ProfileController extends Controller
         ]);
 
         // Retrieve the authenticated user
-        $admin = Admin::find(Auth::guard('admin')->user()->id);
+        $admin = User::find(Auth::user()->id);
 
         // Check if the old password matches the current password
         if (!Hash::check($request->old_password, $admin->password)) {

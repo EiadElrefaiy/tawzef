@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('address');
             $table->string('commercial_index');
             $table->string('tax_card');
-            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
 

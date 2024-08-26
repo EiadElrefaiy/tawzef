@@ -1,0 +1,267 @@
+/*custom styles*/
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|ZCOOL+XiaoWei');
+@font-face {
+    font-family: TheSans;
+    font-weight: 400;
+    src: url(../plugins/css/fonts/TheSans-Plain.eot);
+    src: local("â˜º"), url(../plugins/css/fonts/TheSans-Plain.woff) format("woff"), url(../plugins/css/fonts/TheSans-Plain.ttf) format("truetype"), url(../plugins/css/fonts/TheSans-Plain.svg) format("svg");
+    font-style: normal
+}
+
+@font-face {
+    font-family: TheSans;
+    font-weight: 700;
+    src: url(../plugins/css/fonts/TheSans-Bold.eot);
+    src: local("â˜º"), url(../plugins/css/fonts/TheSans-Bold.woff) format("woff"), url(../plugins/css/fonts/TheSans-Bold.ttf) format("truetype"), url(../plugins/css/fonts/TheSans-Bold.svg) format("svg");
+    font-style: normal
+}
+
+.simple-banner h3 {
+    display: block;
+    clear: both;
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.color-1 {
+    background: #07b107 !important;
+}
+
+.login-panel img {
+    margin: 10px auto 10px auto;
+    max-width: 40%;
+}
+
+.login-panel .login-form {
+    padding: 10px 30px 10px 30px;
+}
+
+nav.navbar.bootsnav.navbar-fixed .logo-scrolled {
+    width: 60px;
+}
+
+.navbar-brand {
+    padding: 8px 15px;
+}
+
+nav.navbar.bootsnav ul.nav>li>a {
+    text-transform: capitalize;
+}
+
+.login-panel {
+    background: rgba(255, 255, 255, 1);
+}
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+    height: 50px;
+    border: 1px solid #dde6ef;
+    margin-bottom: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    background: #fbfdff;
+    font-size: 15px;
+    color: #445461;
+    font-weight: 400;
+}
+
+.select2-container--default .select2-selection--single:hover,
+.select2-container--default .select2-selection--multiple:hover {
+    border: 1px solid #0084ff;
+    -webkit-box-shadow: 0 1px 1px rgba(7, 177, 7, .075);
+    box-shadow: 0 1px 1px rgba(7, 177, 7, .075);
+}
+
+.ur-detail-wrap.top-lay {
+    padding-bottom: 0;
+    border-bottom: 3px solid #0084ff;
+}
+
+.ur-detail-wrap.top-lay ul.main-info {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.ur-detail-wrap.top-lay ul.main-info li {
+    margin-top: 12px;
+}
+
+.ur-detail-wrap.top-lay h3 {
+    font-size: 22px;
+}
+
+.bottom-mrg2 {
+    margin-bottom: 20px;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.splitter {
+    display: block;
+    height: 30px;
+    clear: both;
+}
+
+.note {
+    color: red;
+    font-size: 12px;
+}
+
+h2.title2 {
+    background: #0084ff;
+    color: #fff;
+}
+
+.job-detail-des {
+    padding-right: 0;
+}
+
+.related-co-logo {
+    width: 40px;
+    float: left;
+}
+
+ul.detail-list li {
+    padding-right: 20px;
+    position: relative;
+}
+
+ul.detail-list li:before {
+    content: "\f100";
+    position: absolute;
+    left: 0;
+    font-family: fontawesome;
+}
+
+ul.job-detail-des li span {
+    min-width: 160px;
+}
+
+ul.job-detail-des li span i {
+    min-width: 20px;
+}
+
+.main-info i {
+    min-width: 25px;
+    text-align: center;
+}
+
+.user-pan {
+    padding: 16px 0;
+}
+
+.user-pan .dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+.user-pan .dropdown-menu>li>a {
+    padding: 8px 20px;
+}
+
+.form label {
+    display: block;
+    text-align: right;
+}
+
+.inner-header-title {
+    height: 240px;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.category-box {
+    height: 170px;
+}
+
+.manage-cndt .cndt-caption p {
+    font-family: inherit;
+}
+
+.manage-cndt:hover .cndt-profile-btn,
+.manage-cndt:focus .cndt-profile-btn {
+    background: #0084ff;
+}
+
+.manage-cndt .cndt-profile-btn:hover,
+.manage-cndt .cndt-profile-btn:focus {
+    background: #0084ff;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-right,
+    .navbar-left {
+        margin-top: 20px;
+        /* margin-bottom: 20px;*/
+    }
+    li.left-br:last-child {
+        border-left: 0;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    nav.navbar.bootsnav.navbar-light.white {
+        min-height: 78px;
+    }
+    nav.navbar.bootsnav ul.nav>li>a {
+        font-size: 16px;
+    }
+    .simple-banner {
+        height: 400px;
+        min-height: 400px;
+    }
+    .simple-banner h1 {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .inner-header-title h1 {
+        font-size: 40px;
+    }
+}
+
+.simple-banner h1 {
+    font-family: 'Baloo Chettan', cursive;
+}
+
+@media only screen and (min-width: 1024px) {
+    .simple-banner h1 {
+        font-size: 40px;
+        font-family: 'Baloo Chettan', cursive;
+    }
+}
+
+.simple-banner h3 {
+    font-size: 30px;
+    font-family: 'Baloo Chettan', cursive;
+}
+
+@media screen and (max-width: 480px) {
+    .simple-banner h1 {
+        font-size: 22px;
+        line-height: 1.5
+    }
+    .simple-banner h3 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    li.left-br:last-child {
+        border-left: 1px solid rgba(0, 132, 255, 0.4);
+    }
+    li.left-br:first-child {
+        border-left: 0;
+    }
+}

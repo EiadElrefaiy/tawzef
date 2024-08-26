@@ -17,11 +17,14 @@ class CreateEducationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('faculty_id');
             $table->unsignedBigInteger('degree_id');
+            $table->unsignedBigInteger('graduation_id');
             $table->date('from');
             $table->date('to');
-            
+            $table->string('grade');
+
             $table->foreign('faculty_id')->references('id')->on('faculty')->onDelete('cascade');
             $table->foreign('degree_id')->references('id')->on('degree')->onDelete('cascade');
+            $table->foreign('graduation_id')->references('id')->on('graduations')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -17,7 +17,7 @@
                                     <strong class="table-db d-none">users</strong>
                                     <strong class="view d-none">dashboard.sections.users</strong>
                                 </div>
-                                @if(Auth::user()->role !== 'manager')
+                                @if(Auth::user()->role !== 'admin')
                                     <button id="addItemBtn" class="btn btn-success text-white" data-toggle="modal" data-target="#addItemModal">
                                         <i class="fa fa-plus-square"></i> &nbsp; Add Admin
                                     </button>
@@ -30,8 +30,7 @@
                                             <tr>
                                                 <th id="id" class="text-center align-middle d-none">id</th>
                                                 <th id="image" class="text-center align-middle">Image</th>
-                                                <th id="first_name" class="text-center align-middle">First Name</th>
-                                                <th id="last_name" class="text-center align-middle">Last Name</th>
+                                                <th id="name" class="text-center align-middle">Name</th>
                                                 <th id="email" class="text-center align-middle">Email</th>
                                                 <th id="password" class="text-center align-middle d-none">password</th>
                                                 <th id="password_confirmation" class="text-center align-middle d-none">password_confirmation</th>
@@ -49,8 +48,7 @@
                                                     <img src="{{ URL::asset('images/admin.png') }}" alt="user" width="60" height="60" class="rounded-circle">
                                                     @endif
                                                 </td>
-                                                <td class="text-center align-middle">{{ $item['first_name'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['last_name'] }}</td>
+                                                <td class="text-center align-middle">{{ $item['name'] }}</td>
                                                 <td class="text-center align-middle">{{ $item['email'] }}</td>
                                                 <td class="text-center align-middle">
                                                     @if(Auth::user()->role !== 'manager' || Auth::id() === $item['id'])

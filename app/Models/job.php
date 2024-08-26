@@ -16,6 +16,11 @@ class job extends Model
         'city', 'address', 'commercial_index', 'tax_card', 'logo'
     ];
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
     public function field()
     {
         return $this->belongsTo(Field::class);

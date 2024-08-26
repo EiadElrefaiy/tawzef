@@ -57,7 +57,7 @@ trait ModelHelperTrait
             Faculty::class => ['graduations','educations'],
             Degree::class => ['educations'],
             Graduation::class =>  ['faculty', 'educations', 'experiences', 'certifications' , 'jobApplications'],
-            Job::class => ['field' , 'jobApplications'],
+            Job::class => ['companies' , 'field' , 'jobApplications'],
             Education::class => ['faculty', 'degree', 'certifications'],
             Experience::class => ['graduation'],
             Certification::class => ['education' , 'graduation'],

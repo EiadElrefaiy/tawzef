@@ -40,18 +40,14 @@
                                                     <div class="col-12">
                                                         <div class="mx-auto d-block">
                                                             <img class="rounded-circle mx-auto d-block" src="{{ asset(isset($data) && $data->image ? $data->image : 'images/admin.png') }}" alt="Profile Image" id="profile-image-preview" width="150" height="150">
-                                                            <h5 class="text-sm-center mt-2 mb-1">{{$data->first_name}} {{$data->last_name}}</h5>
+                                                            <h5 class="text-sm-center mt-2 mb-1">{{$data->name}}</h5>
                                                             <div class="location text-sm-center"><i class="fa fa-map-marker"></i> {{$data->role}}</div>
                                                             <input type="file" name="image" id="profile_image" class="form-control mt-2" onchange="previewImage(event)">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="first_name" class="control-label mb-1">First name</label>
-                                                        <input id="first_name" name="first_name" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{ old('first_name', isset($data) ? $data->first_name : '') }}">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="last_name" class="control-label mb-1">Last name</label>
-                                                        <input id="last_name" name="last_name" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{ old('last_name', isset($data) ? $data->last_name : '') }}">
+                                                    <div class="col-md-12">
+                                                        <label for="name" class="control-label mb-1">Name</label>
+                                                        <input id="name" name="name" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{ old('name', isset($data) ? $data->name : '') }}">
                                                     </div>
                                                 </div>
                                             </div>

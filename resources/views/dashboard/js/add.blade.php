@@ -38,7 +38,7 @@ function createFormFields() {
                         </div>
                         <input type="file" class="form-control" id="${headerId}" name="${headerId}">
                     </div>`;
-            } else if (headerId === 'image' && headerText === 'Icon') {
+            } else if (headerId === 'image' && headerText === 'Icon'){
                 inputField = `
                     <div class="form-group">
                         <label for="${headerId}">${headerText}</label>
@@ -47,7 +47,9 @@ function createFormFields() {
                         </div>
                         <input type="file" class="form-control" id="${headerId}" name="${headerId}">
                     </div>`;
-            } else if(headerId === 'image' && headerText === 'picture'){
+            }
+
+            else if(headerId === 'image' && headerText === 'picture'){
                 inputField = `
                 <div class="form-group">
                     <label for="${headerId}">${headerText}</label>
@@ -90,14 +92,54 @@ function createFormFields() {
                         <input type="text" class="form-control" id="${headerId}" name="${headerId}" value="0" required>
                     </div>`;
             } 
-            else if (headerId === 'description' || headerId === 'description_eng') {
-                const direction = headerId === 'description' ? 'rtl' : 'ltr';
+            else if (headerId === 'state') {
+
+            var inputField = `<div class="form-group">
+                    <label for="${headerId}">${headerText}</label>
+                    <select class="form-control" id="${headerId}" name="${headerId}">`;
+
+                        inputField += `
+                            <option value="القاهرة">القاهرة</option>
+                            <option value="الإسكندرية">الإسكندرية</option>
+                            <option value="الجيزة">الجيزة</option>
+                            <option value="أسوان">أسوان</option>
+                            <option value="أسيوط">أسيوط</option>
+                            <option value="البحيرة">البحيرة</option>
+                            <option value="بني سويف">بني سويف</option>
+                            <option value="الدقهلية">الدقهلية</option>
+                            <option value="دمياط">دمياط</option>
+                            <option value="الفيوم">الفيوم</option>
+                            <option value="الغربية">الغربية</option>
+                            <option value="الإسماعيلية">الإسماعيلية</option>
+                            <option value="كفر الشيخ">كفر الشيخ</option>
+                            <option value="الأقصر">الأقصر</option>
+                            <option value="مطروح">مطروح</option>
+                            <option value="المنيا">المنيا</option>
+                            <option value="المنوفية">المنوفية</option>
+                            <option value="الوادي الجديد">الوادي الجديد</option>
+                            <option value="شمال سيناء">شمال سيناء</option>
+                            <option value="بورسعيد">بورسعيد</option>
+                            <option value="القليوبية">القليوبية</option>
+                            <option value="قنا">قنا</option>
+                            <option value="البحر الأحمر">البحر الأحمر</option>
+                            <option value="الشرقية">الشرقية</option>
+                            <option value="سوهاج">سوهاج</option>
+                            <option value="جنوب سيناء">جنوب سيناء</option>
+                            <option value="السويس">السويس</option>
+                        `;
+
+                    inputField += `</select></div>`;
+
+            }
+
+            else if (headerId === 'from' || headerId === 'to') {
                 inputField = `
-                    <div class="form-group" dir="${direction}">
+                    <div class="form-group">
                         <label for="${headerId}">${headerText}</label>
-                        <textarea class="form-control" id="${headerId}" name="${headerId}" rows="5" required></textarea>
+                        <input type="number" class="form-control" id="${headerId}" name="${headerId}" min="1900" max="2100" step="1" placeholder="YYYY" required>
                     </div>`;
             }
+            
             else {
                 inputField = `
                     <div class="form-group">

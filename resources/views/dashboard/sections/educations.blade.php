@@ -24,8 +24,8 @@
                                         <thead>
                                             <tr>
                                                 <th id="id" class="text-center align-middle" style="display: none;">id</th>
-                                                <th id="label" class="text-center align-middle"> كلمة (عربي)</th>
-                                                <th id="label_eng" class="text-center align-middle">Label (English)</th>
+                                                <th id="faculty_id" class="text-center align-middle">Faculty</th>
+                                                <th id="degree_id" class="text-center align-middle">Label (English)</th>
                                                 <th id="url" class="text-center align-middle">Link</th>
                                                 <th id="arrangement" class="text-center align-middle">Arrangement</th>
                                                 <th></th>

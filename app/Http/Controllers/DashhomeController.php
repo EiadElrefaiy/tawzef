@@ -15,7 +15,6 @@ class DashHomeController extends Controller
         // Define the tables you want to fetch data from
         $tables = [
             'users',
-            'certifications',
             'companies',
             'degree',
             'educations',

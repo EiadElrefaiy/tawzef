@@ -25,7 +25,7 @@
                         <a href="{{ route('index', ['table' => 'companies', 'view' => 'dashboard.sections.companies']) }}">Companies</a>
                     </li>
                     <li>
-                        <a href="{{ route('index', ['table' => 'degrees', 'view' => 'dashboard.sections.degrees']) }}">Degrees</a>
+                        <a href="{{ route('index', ['table' => 'degree', 'view' => 'dashboard.sections.degree']) }}">Degrees</a>
                     </li>
                     <li>
                         <a href="{{ route('index', ['table' => 'educations', 'view' => 'dashboard.sections.educations']) }}">Educations</a>
