@@ -11,12 +11,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Footer links</strong>
-                                <strong class="table-db" style="display:none;">footer_links</strong>
-                                <strong class="view" style="display:none;">dashboard.sections.footer_links</strong>
-                                <button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
-                                    <i class="fa fa-plus-square"></i> &nbsp; Add Service
-                                </button>
+                                <strong class="card-title">Educations</strong>
+                                <strong class="table-db" style="display:none;">educations</strong>
+                                <strong class="view" style="display:none;">dashboard.sections.educations</strong>
+                                <!--button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
+                                    <i class="fa fa-plus-square"></i> &nbsp; Add education
+                                </button-->
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -24,10 +24,9 @@
                                         <thead>
                                             <tr>
                                                 <th id="id" class="text-center align-middle" style="display: none;">id</th>
+                                                <th id="graduation_id" class="text-center align-middle">graduation</th>
                                                 <th id="faculty_id" class="text-center align-middle">Faculty</th>
-                                                <th id="degree_id" class="text-center align-middle">Label (English)</th>
-                                                <th id="url" class="text-center align-middle">Link</th>
-                                                <th id="arrangement" class="text-center align-middle">Arrangement</th>
+                                                <th id="degree_id" class="text-center align-middle">degree</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -36,10 +35,18 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td class="text-center align-middle" style="display: none;">{{ $item['id'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['label'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['label_eng'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['url'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['arrangement'] }}</td>
+                                                <td class="text-center align-middle">
+                                                    <p class="text-dark">{{$item->graduation->name}}</p>
+                                                    <p class="text-dark"></p>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <p class="text-dark">{{$item->faculty->name}}</p>
+                                                    <p class="text-dark"></p>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <p class="text-dark">{{$item->degree->name}}</p>
+                                                    <p class="text-dark"></p>
+                                                </td>
                                                 <td class="text-center align-middle">
                                                     <button class="btn btn-warning text-white editBtn same-width">
                                                         <i class="fa fa-edit"></i>

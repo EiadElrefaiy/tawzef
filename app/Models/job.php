@@ -2,18 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class job extends Model
+class Job extends Model
 {
-    use HasFactory;
-
-    protected $table = 'jobs';
-
     protected $fillable = [
-        'field_id', 'username', 'name', 'state', 
-        'city', 'address', 'commercial_index', 'tax_card', 'logo'
+        'company_id', 'field_id', 'name', 'location', 'number', 'announcement_date', 
+        'years_of_experience', 'required_qualification', 
+        'type', 'required_gender', 'salary', 'computer_type' , 'description'
     ];
 
     public function company()
@@ -26,9 +22,15 @@ class job extends Model
         return $this->belongsTo(Field::class);
     }
 
-    public function jobApplications()
+    // Many-to-Many relationship with Graduation
+    public function graduations()
+    {
+        return $this->belongsToMany(Graduation::class, 'job_applications');
+    }
+
+    // Optionally, you can define the inverse of the hasMany relationship to JobApplication
+    public function applications()
     {
         return $this->hasMany(JobApplication::class);
     }
-
 }

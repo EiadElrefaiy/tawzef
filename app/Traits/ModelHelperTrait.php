@@ -35,7 +35,6 @@ trait ModelHelperTrait
             'jobs' => Job::class,
             'educations' => Education::class,
             'experiences' => Experience::class,
-            'certifications' => Certification::class,
             'job_applications' => JobApplication::class,
             'visits' => Visit::class,
         ];
@@ -56,12 +55,11 @@ trait ModelHelperTrait
             Field::class => ['jobs'],
             Faculty::class => ['graduations','educations'],
             Degree::class => ['educations'],
-            Graduation::class =>  ['faculty', 'educations', 'experiences', 'certifications' , 'jobApplications'],
-            Job::class => ['companies' , 'field' , 'jobApplications'],
-            Education::class => ['faculty', 'degree', 'certifications'],
+            Graduation::class =>  ['faculty', 'educations', 'experiences' , 'jobs'],
+            Job::class => ['company' , 'field' , 'applications' , 'graduations'],
+            Education::class => ['faculty', 'degree'],
             Experience::class => ['graduation'],
-            Certification::class => ['education' , 'graduation'],
-            JobApplication::class => ['invoices', 'offers' , 'returns'],
+            JobApplication::class => [],
             // Add other relationships here
         ];
 

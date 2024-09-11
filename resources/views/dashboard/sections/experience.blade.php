@@ -2,8 +2,7 @@
 
 @section('content')
 
-
-<div class="content mt-3">
+    <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
                     <div class="col-12">
@@ -11,13 +10,13 @@
                     </div>
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Hero Images</strong>
-                                <strong class="table-db" style="display:none;">hero_images</strong>
-                                <strong class="view" style="display:none;">dashboard.sections.hero_images</strong>
-                                <button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
-                                    <i class="fa fa-plus-square"></i> &nbsp; Add Review
-                                </button>
+                        <div class="card-header">
+                                <strong class="card-title">Experiences</strong>
+                                <strong class="table-db" style="display:none;">experiences</strong>
+                                <strong class="view" style="display:none;">dashboard.sections.experiences</strong>
+                                <!--button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
+                                    <i class="fa fa-plus-square"></i> &nbsp; Add Experiences
+                                </button-->
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -25,23 +24,25 @@
                                         <thead>
                                             <tr>
                                                 <th id="id" class="text-center align-middle" style="display: none;">id</th>
-                                                <th id="image" class="text-center align-middle">picture</th>
-                                                <th id="arrangement" class="text-center align-middle">Arrangement</th>
+                                                <th id="graduation_id" class="text-center align-middle">graduation</th>
+                                                <th id="company" class="text-center align-middle">Company</th>
+                                                <th id="from" class="text-center align-middle">from</th>
+                                                <th id="to" class="text-center align-middle">to</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td class="text-center align-middle" style="display: none;">{{ $item['id'] }}</td>
                                                 <td class="text-center align-middle">
-                                                @if(isset($item['image']) && $item['image'])
-                                                <img src="{{ asset($item->image) }}" alt="user" width="150" />
-                                                @else
-                                                <img src="{{ URL::asset('images/default.jpg') }}" alt="user" width="150">
-                                                @endif
+                                                    <p class="text-dark">{{$item->graduation->name}}</p>
+                                                    <p class="text-dark"></p>
                                                 </td>
-                                                <td class="text-center align-middle">{{ $item['arrangement'] }}</td>
+                                                <td class="text-center align-middle">{{ $item['company'] }}</td>
+                                                <td class="text-center align-middle">{{ $item['from'] }}</td>
+                                                <td class="text-center align-middle">{{ $item['to'] }}</td>
                                                 <td class="text-center align-middle">
                                                     <button class="btn btn-warning text-white editBtn same-width">
                                                         <i class="fa fa-edit"></i>
@@ -51,15 +52,15 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-
                 </div>
             </div><!-- .animated -->
+
 @endsection

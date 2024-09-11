@@ -31,7 +31,7 @@
                         <a href="{{ route('index', ['table' => 'educations', 'view' => 'dashboard.sections.educations']) }}">Educations</a>
                     </li>
                     <li>
-                        <a href="{{ route('index', ['table' => 'experiences', 'view' => 'dashboard.sections.experiences']) }}">Experience</a>
+                        <a href="{{ route('index', ['table' => 'experiences', 'view' => 'dashboard.sections.experience']) }}">Experience</a>
                     </li>
                     <li>
                         <a href="{{ route('index', ['table' => 'faculty', 'view' => 'dashboard.sections.faculties']) }}">faculties</a>
@@ -46,7 +46,7 @@
                         <a href="{{ route('index', ['table' => 'jobs', 'view' => 'dashboard.sections.jobs']) }}">Jobs</a>
                     </li>
                     <li>
-                        <a href="{{ route('index', ['table' => 'Job_applications', 'view' => 'dashboard.sections.Job_applications']) }}">Job applications</a>
+                        <a href="{{ route('index', ['table' => 'job_applications', 'view' => 'dashboard.sections.Job_applications']) }}">Job applications</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

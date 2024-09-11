@@ -2,7 +2,8 @@
 
 @section('content')
 
-       <div class="content mt-3">
+
+<div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
                     <div class="col-12">
@@ -11,11 +12,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Hero Main Services</strong>
-                                <strong class="table-db" style="display:none;">hero_main_services</strong>
-                                <strong class="view" style="display:none;">dashboard.sections.hero_main_services</strong>
+                            <strong class="card-title">Fields</strong>
+                                <strong class="table-db" style="display:none;">fields</strong>
+                                <strong class="view" style="display:none;">dashboard.sections.fields</strong>
                                 <button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
-                                    <i class="fa fa-plus-square"></i> &nbsp; Add Sub Service
+                                    <i class="fa fa-plus-square"></i> &nbsp; Add field
                                 </button>
                             </div>
                             <div class="card-body">
@@ -24,9 +25,7 @@
                                         <thead>
                                             <tr>
                                                 <th id="id" class="text-center align-middle" style="display: none;">id</th>
-                                                <th id="label" class="text-center align-middle">كلمة (عربي)</th>
-                                                <th id="label_eng" class="text-center align-middle">Label (English)</th>
-                                                <th id="arrangement" class="text-center align-middle">Arrangement</th>
+                                                <th id="name" class="text-center align-middle">name</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -34,9 +33,7 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td class="text-center align-middle" style="display: none;">{{ $item['id'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['label'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['label_eng'] }}</td>
-                                                <td class="text-center align-middle">{{ $item['arrangement'] }}</td>
+                                                <td class="text-center align-middle">{{ $item['name'] }}</td>
                                                 <td class="text-center align-middle">
                                                     <button class="btn btn-warning text-white editBtn same-width">
                                                         <i class="fa fa-edit"></i>
@@ -57,4 +54,4 @@
 
                 </div>
             </div><!-- .animated -->
- @endsection
+@endsection

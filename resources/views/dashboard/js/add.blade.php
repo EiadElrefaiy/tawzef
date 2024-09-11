@@ -136,7 +136,7 @@ function createFormFields() {
                 inputField = `
                     <div class="form-group">
                         <label for="${headerId}">${headerText}</label>
-                        <input type="number" class="form-control" id="${headerId}" name="${headerId}" min="1900" max="2100" step="1" placeholder="YYYY" required>
+                        <input type="number" class="form-control" id="${headerId}" name="${headerId}" min="1900" max="2100" value="2024" step="1" placeholder="YYYY" required>
                     </div>`;
             }
             

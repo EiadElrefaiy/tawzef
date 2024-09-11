@@ -12,10 +12,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Header</strong>
-                                <strong class="table-db" style="display:none;">header</strong>
-                                <strong class="view" style="display:none;">dashboard.sections.header</strong>
+                                <strong class="table-db" style="display:none;">Graduations</strong>
+                                <strong class="view" style="display:none;">dashboard.sections.graduations</strong>
                                 <button id="addItemBtn" class="btn btn-success text-white pull-right" data-toggle="modal" data-target="#addItemModal">
-                                    <i class="fa fa-plus-square"></i> &nbsp; Add Item
+                                    <i class="fa fa-plus-square"></i> &nbsp; Add Graduation
                                 </button>
                             </div>
                             <div class="card-body">
@@ -32,17 +32,21 @@
                                                 <th id="linkedin" class="text-center align-middle">Linkedin</th>
                                                 <th id="google" class="text-center align-middle">Google</th>
                                                 <th id="resume" class="text-center align-middle">Resume</th>
+                                                <th id="password" class="text-center align-middle d-none">password</th>
+                                                <th id="password_confirmation" class="text-center align-middle d-none">password_confirmation</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         @foreach ($data as $item)
                                             <tr>
+                                                <td>
                                                 @if(isset($item['image']) && $item['image'])
                                                 <img src="{{ asset($item->image) }}" alt="contact" width="60" height="60" />
                                                 @else
                                                 <img src="{{ URL::asset('images/default.jpg') }}" alt="contact" width="60" height="60">
                                                 @endif
+                                                </td>
                                                 <td class="text-center align-middle" style="display: none;">{{ $item['id'] }}</td>
                                                 <td class="text-center align-middle">{{ $item['email'] }}</td>
                                                 <td class="text-center align-middle">{{ $item['name'] }}</td>

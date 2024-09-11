@@ -17,6 +17,15 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLogi
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('admin.logout');
 
+
+Route::get('company/login-form', [App\Http\Controllers\Auth\Company\LoginController::class, 'showLoginForm'])->name('get-comapny.login');
+Route::post('company/login', [App\Http\Controllers\Auth\Company\LoginController::class, 'login'])->name('company.login');
+Route::get('company/register-form', [App\Http\Controllers\Auth\Company\RegisterController::class, 'showRegistrationForm'])->name('get-comapny.register');
+Route::post('company/register', [App\Http\Controllers\Auth\Company\RegisterController::class, 'register'])->name('company.register');
+Route::post('company/logout', [App\Http\Controllers\Auth\Company\LogoutController::class, 'logout'])->name('company.logout');
+
+
+
 /*
 Route::get('/',  [App\Http\Controllers\Website\HomeController::class, 'getAllData'])->name('home');
 Route::get('locale/{locale}', [App\Http\Controllers\Website\LocaleController::class, 'switchLocale'])->name('locale.switch');
@@ -29,9 +38,7 @@ Route::post('/create-message', [App\Http\Controllers\CRUD\CreateController::clas
     })->name('index');
 
 Route::middleware('auth')->group(function () {
-    
     Route::get('/dashboard', [App\Http\Controllers\DashHomeController::class, 'getAllData'])->name('dashboard');
-        
     Route::get('dashboard/index', [App\Http\Controllers\CRUD\ReadController::class, 'index'])->name('index');
     Route::get('dashboard/read', [App\Http\Controllers\CRUD\ReadController::class, 'read'])->name('read');
     Route::post('dashboard/create', [App\Http\Controllers\CRUD\CreateController::class, 'create'])->name('create');
@@ -41,5 +48,15 @@ Route::middleware('auth')->group(function () {
     Route::post('dashboard/change-password', [App\Http\Controllers\Profile\ProfileController::class, 'changePassword'])->name('update_password');
     Route::post('dashboard/delete', [App\Http\Controllers\CRUD\DeleteController::class, 'delete'])->name('delete');
     Route::post('dashboard/send-emails', [App\Http\Controllers\CRUD\NewsletterController::class, 'sendEmails'])->name('sendEmails');
-
 });
+
+Route::get('/jobs/add', [App\Http\Controllers\Jobs\CreateJob::class, 'add'])->name('jobs.add');
+Route::get('/jobs/edit/{id}', [App\Http\Controllers\Jobs\UpdateJob::class, 'edit'])->name('jobs.edit');
+Route::get('/jobs/company-jobs', [App\Http\Controllers\Jobs\ReadJobs::class, 'index'])->name('jobs.company');
+Route::post('/jobs/store', [App\Http\Controllers\Jobs\CreateJob::class, 'create'])->name('jobs.store');
+Route::post('/jobs/update/{id}', [App\Http\Controllers\Jobs\UpdateJob::class, 'update'])->name('jobs.update');
+Route::delete('/jobs/delete', [App\Http\Controllers\Jobs\DeleteJob::class, 'delete'])->name('jobs.delete');
+
+
+Route::get('/company/profile', [App\Http\Controllers\Companies\ProfileCompany::class, 'profile'])->name('company.profile');
+

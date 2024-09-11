@@ -31,14 +31,9 @@ class Graduation extends Model
         return $this->hasMany(Experience::class);
     }
 
-    public function certifications()
+    // Many-to-Many relationship with Job
+    public function jobs()
     {
-        return $this->hasMany(Certification::class);
+        return $this->belongsToMany(Job::class, 'job_applications');
     }
-
-    public function jobApplications()
-    {
-        return $this->hasMany(JobApplication::class);
-    }
-
 }

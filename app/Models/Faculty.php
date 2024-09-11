@@ -15,12 +15,12 @@ class Faculty extends Model
 
     public function graduations()
     {
-        return $this->hasMany(Graduation::class);
+        return $this->belongsTo(Graduation::class);
     }
 
     public function educations()
     {
-        return $this->hasMany(Education::class);
+        return $this->belongsTo(Education::class);
     }
 
 }

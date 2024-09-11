@@ -15,7 +15,7 @@ class Degree extends Model
 
     public function educations()
     {
-        return $this->belongsTo(Education::class);
+        return $this->hasMany(Education::class);
     }
 
 }

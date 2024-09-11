@@ -11,21 +11,20 @@ class Education extends Model
 
     protected $table = 'educations';
 
-    protected $fillable = ['faculty_id', 'degree_id', 'from', 'to'];
+    protected $fillable = ['graduation_id','faculty_id', 'degree_id', 'from', 'to'];
 
+    public function graduation()
+    {
+        return $this->belongsTo(Graduation::class, 'graduation_id');
+    }
+    
     public function faculty()
     {
-        return $this->belongsTo(Faculty::class);
+        return $this->belongsTo(Faculty::class, 'faculty_id');
     }
-
+    
     public function degree()
     {
-        return $this->hasMany(Degree::class);
+        return $this->belongsTo(Degree::class, 'degree_id');
     }
-
-    public function certifications()
-    {
-        return $this->hasMany(Certification::class);
-    }
-
 }
