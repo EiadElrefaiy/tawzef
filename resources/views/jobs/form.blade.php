@@ -178,6 +178,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            </div>
 
                         <!-- Job Description -->
                         <div class="row bottom-mrg extra-mrg">

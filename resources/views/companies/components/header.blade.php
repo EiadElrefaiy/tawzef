@@ -33,7 +33,7 @@
                                         <a href="company-profile.html"> <i class="fa fa-cogs"></i> الملف الشخصي </a>
 										<a href="company-edit-info.html"> <i class="fa fa-edit"></i> تعديل بياناتي </a>
 										<div class="divider"></div>
-                                        <a href="#"> <i class="fa fa-sign-out"></i> تسجيل الخروج </a>
+                                        <a href="{{ route('company.logout') }}"> <i class="fa fa-sign-out"></i> تسجيل الخروج </a>
                                     </li>
                                 </ul>
                             </div>

@@ -18,11 +18,18 @@ Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('admin.logout');
 
 
-Route::get('company/login-form', [App\Http\Controllers\Auth\Company\LoginController::class, 'showLoginForm'])->name('get-comapny.login');
+Route::get('company/login-form', [App\Http\Controllers\Auth\Company\LoginController::class, 'showLoginForm'])->name('get-company.login');
 Route::post('company/login', [App\Http\Controllers\Auth\Company\LoginController::class, 'login'])->name('company.login');
-Route::get('company/register-form', [App\Http\Controllers\Auth\Company\RegisterController::class, 'showRegistrationForm'])->name('get-comapny.register');
+Route::get('company/register-form', [App\Http\Controllers\Auth\Company\RegisterController::class, 'showRegistrationForm'])->name('get-company.register');
 Route::post('company/register', [App\Http\Controllers\Auth\Company\RegisterController::class, 'register'])->name('company.register');
-Route::post('company/logout', [App\Http\Controllers\Auth\Company\LogoutController::class, 'logout'])->name('company.logout');
+Route::get('company/logout', [App\Http\Controllers\Auth\Company\LogoutController::class, 'logout'])->name('company.logout');
+
+
+Route::get('graduation/login-form', [App\Http\Controllers\Auth\Graduation\LoginController::class, 'showLoginForm'])->name('get-graduation.login');
+Route::post('graduation/login', [App\Http\Controllers\Auth\Graduation\LoginController::class, 'login'])->name('graduation.login');
+Route::get('graduation/register-form', [App\Http\Controllers\Auth\Graduation\RegisterController::class, 'showRegistrationForm'])->name('get-graduation.register');
+Route::post('graduation/register', [App\Http\Controllers\Auth\Graduation\RegisterController::class, 'register'])->name('graduation.register');
+Route::get('graduation/logout', [App\Http\Controllers\Auth\Graduation\LogoutController::class, 'logout'])->name('graduation.logout');
 
 
 
@@ -59,4 +66,7 @@ Route::delete('/jobs/delete', [App\Http\Controllers\Jobs\DeleteJob::class, 'dele
 
 
 Route::get('/company/profile', [App\Http\Controllers\Companies\ProfileCompany::class, 'profile'])->name('company.profile');
+Route::get('/graduation/info', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'info'])->name('graduation.info');
+Route::get('/graduation/profile', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'profile'])->name('graduation.profile');
+Route::post('/graduation/update/{id}', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'update'])->name('graduation.update');
 

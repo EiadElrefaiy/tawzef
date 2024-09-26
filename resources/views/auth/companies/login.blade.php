@@ -36,7 +36,7 @@
 								
                                 <input type="submit" name="submit" value="دخول" class="btn btn-login">
                                 <br>
-                                <p>ليس لديك حساب <a href="{{ route('get-comapny.register') }}" class="cl-success">اضغط هنا </a></p>
+                                <p>ليس لديك حساب <a href="{{ route('get-company.register') }}" class="cl-success">اضغط هنا </a></p>
 							</fieldset>
 						</form>
 						

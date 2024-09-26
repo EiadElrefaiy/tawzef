@@ -36,6 +36,7 @@ trait ModelHelperTrait
             'educations' => Education::class,
             'experiences' => Experience::class,
             'job_applications' => JobApplication::class,
+            'skills' => Skill::class,
             'visits' => Visit::class,
         ];
 
@@ -55,10 +56,11 @@ trait ModelHelperTrait
             Field::class => ['jobs'],
             Faculty::class => ['graduations','educations'],
             Degree::class => ['educations'],
-            Graduation::class =>  ['faculty', 'educations', 'experiences' , 'jobs'],
+            Graduation::class =>  ['faculty', 'educations', 'experiences' , 'jobs', 'skills'],
             Job::class => ['company' , 'field' , 'applications' , 'graduations'],
             Education::class => ['faculty', 'degree'],
             Experience::class => ['graduation'],
+            Skill::class => ['graduation'],
             JobApplication::class => [],
             // Add other relationships here
         ];

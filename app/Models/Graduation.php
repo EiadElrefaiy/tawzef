@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Graduation extends Model
+class Graduation extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'graduations';
 
     protected $fillable = [
-        'email', 'password', 'name', 'faculty_id', 'section', 
-        'grade', 'address', 'facebook', 'google', 'linkedin', 'resume'
+        'email', 'password', 'name', 'address', 'phone', 'facebook', 'google', 'linkedin', 'resume'
     ];
 
     public function faculty()
@@ -36,4 +38,10 @@ class Graduation extends Model
     {
         return $this->belongsToMany(Job::class, 'job_applications');
     }
+
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
 }

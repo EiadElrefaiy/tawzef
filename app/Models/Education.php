@@ -11,7 +11,7 @@ class Education extends Model
 
     protected $table = 'educations';
 
-    protected $fillable = ['graduation_id','faculty_id', 'degree_id', 'from', 'to'];
+    protected $fillable = ['graduation_id','faculty_id', 'degree_id', 'grade', 'from', 'to'];
 
     public function graduation()
     {

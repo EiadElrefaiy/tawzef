@@ -24,8 +24,8 @@
 
                     <ul class="nav nav-1 navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
 
-                        <li class="left-br"><a href="{{route('get-comapny.login')}}" style="left: 48rem;" class="signin color-1">تسجيل دخول شركة</a></li>
-                        <li class="left-br"><a href="login-graduate.html" style="left: 48rem;" class="signin">تسجيل دخول خريج </a></li>
+                        <li class="left-br"><a href="{{route('get-company.login')}}" style="left: 48rem;" class="signin color-1">تسجيل دخول شركة</a></li>
+                        <li class="left-br"><a href="{{route('get-graduation.login')}}" style="left: 48rem;" class="signin">تسجيل دخول خريج </a></li>
 
                     </ul>
                 </div>

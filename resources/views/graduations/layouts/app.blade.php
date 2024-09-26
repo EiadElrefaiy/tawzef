@@ -8,7 +8,6 @@
 	<title> برنامج توظيف الخريجين </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- CSS
 	================================================== -->
@@ -32,13 +31,13 @@
 		
 		<div class="wrapper">  
 			
-		@include('companies.components.header')
+		@include('graduations.components.header')
 
         
         @yield('content')
 			
 		
-		@include('companies.components.footer')
+		@include('graduations.components.footer')
 
 			
 			<!-- Scripts
@@ -51,8 +50,8 @@
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/datedropper.min.js')}}"></script>
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/dropzone.js')}}"></script>
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/loader.js')}}"></script>
-				<script type="text/javascript" src="{{URL::asset('assets/site/assets/js/slicknav.min.js')}}"></script>
-				<script type="text/javascript" src="{{URL::asset('assets/site/assets/js/owl.carousel.min.js')}}"></script>
+				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/slicknav.min.js')}}"></script>
+				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/owl.carousel.min.js')}}"></script>
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/slick.min.js')}}"></script>
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/gmap3.min.js')}}"></script>
 				<script type="text/javascript" src="{{URL::asset('assets/site/assets/plugins/js/jquery.easy-autocomplete.min.js')}}"></script>

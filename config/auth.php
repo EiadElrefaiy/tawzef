@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'companies',
         ],    
+        'graduations' => [
+            'driver' => 'session',
+            'provider' => 'graduations',
+        ],    
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'companies' => [
             'driver' => 'eloquent',
             'model' => App\Models\Company::class, // Your representative model
+        ],
+        'graduations' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Graduation::class, // Your representative model
         ],
 
         // 'users' => [

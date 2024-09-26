@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Company;
+namespace App\Http\Controllers\Auth\Graduation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class LogoutController extends Controller
 {    
     public function logout()
     {
-        Auth::guard('companies')->logout();
-        return redirect()->route('get-company.login');
+        Auth::guard('graduations')->logout();
+        return redirect()->route('get-graduation.login');
     }
 }

@@ -7,7 +7,7 @@
     <!-- Header Title Start -->
     <section class="inner-header-title" style="background-image:url({{URL::asset('assets/site/assets/img/bn2.jpg')}});">
         <div class="container">
-            <h1>تعديل الوظيفة</h1>
+            <h1>اضافة وظيفة</h1>
         </div> 
     </section>
     
@@ -16,7 +16,7 @@
     @include('jobs.form')
 
     <!-- Include CKEditor script -->
-    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.25.0/standard/ckeditor.js"></script>
     
     <!-- Initialize CKEditor -->
     <script>
