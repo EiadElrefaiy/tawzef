@@ -18,4 +18,9 @@ class Field extends Model
         return $this->hasMany(Job::class);
     }
 
+    public function graduations()
+    {
+        return $this->hasMany(Graduation::class);
+    }
+
 }

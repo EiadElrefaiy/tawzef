@@ -67,6 +67,9 @@ Route::delete('/jobs/delete', [App\Http\Controllers\Jobs\DeleteJob::class, 'dele
 
 Route::get('/company/profile', [App\Http\Controllers\Companies\ProfileCompany::class, 'profile'])->name('company.profile');
 Route::get('/graduation/info', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'info'])->name('graduation.info');
+Route::get('/graduation/home', [App\Http\Controllers\Graduations\HomeController::class, 'home'])->name('graduations.home');
 Route::get('/graduation/profile', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'profile'])->name('graduation.profile');
+Route::get('/graduation/browse-job', [App\Http\Controllers\Graduations\BrowseJobGraduation::class, 'GetBrowseJobs'])->name('graduation.browse.jobs');
 Route::post('/graduation/update/{id}', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'update'])->name('graduation.update');
+Route::post('/graduation/update-image/{id}', [App\Http\Controllers\Graduations\ProfileGraduation::class, 'updateImage'])->name('graduation.update.image');
 

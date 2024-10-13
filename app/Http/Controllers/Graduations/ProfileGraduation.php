@@ -21,8 +21,11 @@ class ProfileGraduation extends Controller
         $degrees = $degreesModel::get();
         $graduation = $graduationModel::with(['faculty', 'educations', 'experiences'])->find($id);
 
+        $fieldsModel = $this->getModelClass('fields');
+        $fields = $fieldsModel::get();
+
         // Return the view with the fields data
-        return view('graduations.info', ['graduation' => $graduation , 'faculties' => $faculties , 'degrees' => $degrees]);
+        return view('graduations.info', ['graduation' => $graduation , 'faculties' => $faculties , 'degrees' => $degrees , 'fields' => $fields]);
     }
 
     public function profile()
@@ -33,10 +36,12 @@ class ProfileGraduation extends Controller
         $faculties = $facultiesModel::get();
         $degreesModel = $this->getModelClass('degree');
         $degrees = $degreesModel::get();
+        $fieldsModel = $this->getModelClass('fields');
+        $fields = $fieldsModel::get();
         $graduation = $graduationModel::with(['faculty', 'educations', 'experiences'])->find($id);
 
         // Return the view with the fields data
-        return view('graduations.profile', ['graduation' => $graduation , 'faculties' => $faculties , 'degrees' => $degrees]);
+        return view('graduations.profile', ['graduation' => $graduation , 'faculties' => $faculties , 'degrees' => $degrees , 'fields'=>$fields]);
     }
 
     public function update(Request $request, $id)
@@ -45,16 +50,19 @@ class ProfileGraduation extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'phone' => 'required|string|max:15',
-            'resume' => 'nullable|mimes:pdf,doc,docx|max:2048', // Max size 2MB for CV upload
+            'resume' => 'nullable|mimes:pdf,doc,docx|max:2048', // Resume: optional, max size 2MB
+            'field_id' => 'required|exists:fields,id', 
+            'user_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // User photo: optional, image file
             'education.*.faculty_id' => 'required|exists:faculty,id',
             'education.*.degree_id' => 'required|exists:degree,id',
             'education.*.grade' => 'required|string|max:255',
             'experience.*.company' => 'required|string|max:255',
             'experience.*.job' => 'required|string|max:255',
             'skills.*.name' => 'required|string|max:255',
-            'skills.*.degree' => 'required|string|between:0,100', // Assuming skill level is percentage
+            'skills.*.degree' => 'required|string|between:0,100', // Skill degree (e.g., percentage)
         ]);
-
+    
+    
         // If validation fails, return JSON response with errors
         if ($validator->fails()) {
             return response()->json([
@@ -63,7 +71,7 @@ class ProfileGraduation extends Controller
                 'errors' => $validator->errors()
             ], 422); // Unprocessable Entity
         }
-
+    
         // Retrieve the Graduation model instance
         $graduationModel = $this->getModelClass('graduations');
         $graduation = $graduationModel::find($id);
@@ -73,47 +81,43 @@ class ProfileGraduation extends Controller
                 'message' => 'Graduation entry not found'
             ], 404); // Not Found
         }
-
+    
         // Update the contact information
         $graduation->email = $request->input('email');
         $graduation->phone = $request->input('phone');
         $graduation->address = $request->input('address');
+        $graduation->field_id = $request->input('field_id');
         
         // Handle education data
-        $graduation->educations()->delete(); // Optional: delete old records if you want to replace them
+        $graduation->educations()->delete(); // Delete old records to replace them
         foreach ($request->input('education', []) as $education) {
             $graduation->educations()->create($education);
         }
-
+    
         // Handle experience data
-        $graduation->experiences()->delete(); // Optional: delete old records if you want to replace them
+        $graduation->experiences()->delete(); // Delete old records to replace them
         foreach ($request->input('experience', []) as $experience) {
             $graduation->experiences()->create($experience);
         }
-
+    
         // Handle skills data
-        $graduation->skills()->delete(); // Optional: delete old records if you want to replace them
+        $graduation->skills()->delete(); // Delete old records to replace them
         foreach ($request->input('skills', []) as $skill) {
             $graduation->skills()->create($skill);
         }
-
-        // Handle CV file upload
+    
+        // Handle CV file upload (Resume)
         if ($request->hasFile('resume')) {
-            // Generate a unique filename based on current time and file extension
-            $fileName = time() . '.' . $request->file('resume')->extension();
-
-            // Define the destination path in the public directory
-            $destinationPath = public_path('resumes');
-
-            // Move the uploaded file to the 'public/images/sections' directory with the generated filename
-            $request->file('resume')->move($destinationPath, $fileName);
-
-            $graduation->resume = $fileName;
+            $resumeFile = $request->file('resume');
+            $resumeFileName = time() . '.' . $resumeFile->extension(); // Generate unique file name
+            $resumeFile->move(public_path('resumes'), $resumeFileName); // Move file to 'resumes' directory
+            $graduation->resume = $resumeFileName;
         }
-
+    
+    
         // Save the updated graduation record
         $graduation->save();
-
+    
         // Return a successful JSON response
         return response()->json([
             'status' => 'success',
@@ -121,5 +125,36 @@ class ProfileGraduation extends Controller
             'data' => $graduation
         ], 200); // OK
     }
-
+    
+    public function updateImage(Request $request, $id)
+    {
+        $graduationModel = $this->getModelClass('graduations');
+        // Find the graduation record by ID
+        $graduation = $graduationModel::find($id);
+    
+        // Check if the graduation record was found
+        if (!$graduation) {
+            return response()->json(['status' => 'error', 'message' => 'Graduation record not found'], 404);
+        }
+    
+        // Check if the request has a file
+        if ($request->hasFile('image')) {
+            $photoFile = $request->file('image');
+            $photoFileName = time() . '.' . $photoFile->extension(); // Generate unique file name
+            
+            // Move file to 'images/users' directory
+            $photoFile->move(public_path('images/users'), $photoFileName); 
+            
+            // Update the image property of the graduation record
+            $graduation->image = $photoFileName;
+        }
+    
+        // Save the graduation record
+        $graduation->save();
+    
+        // Return a success response
+        return response()->json(['status' => 'success', 'message' => 'Image uploaded successfully']);
+    }
+    
+    
 }

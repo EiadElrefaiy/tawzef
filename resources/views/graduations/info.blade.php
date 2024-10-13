@@ -119,6 +119,25 @@
                             </div>
                         </div>
 
+
+                    <!-- Field Section -->
+                        <div class="row bottom-mrg extra-mrg">
+                          <h2 class="detail-title">مجال العمل</h2>
+                            <div class="col-md-6 col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-university"></i></span>
+                                        <select class="form-control" name="field_id">
+                                            <option value="" disabled>اختر مجال العمل</option>
+                                                @foreach($fields as $field)
+                                                    <option value="{{ $field->id }}" {{ $field->id == $graduation->field_id ? 'selected' : '' }}>{{ $field->name }}</option>
+                                                @endforeach
+                                        </select>
+                                    </div>
+                            </div>
+                      </div>
+
+
+
                         <!-- Experience Section -->
                         <div class="row bottom-mrg extra-mrg">
                             <h2 class="detail-title">الخبرة العملية</h2>

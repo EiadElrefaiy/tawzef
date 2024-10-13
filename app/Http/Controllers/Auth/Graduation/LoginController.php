@@ -32,7 +32,7 @@ class LoginController extends Controller
     
         if (Auth::guard('graduations')->attempt($credentials)) {
             // Authentication passed, redirect to the correct route
-            return view('graduations.home');
+            return redirect()->route('graduations.home');
         }
     
         // If authentication fails, check if the email exists

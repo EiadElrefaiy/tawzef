@@ -32,6 +32,7 @@
                                                 <th id="linkedin" class="text-center align-middle">Linkedin</th>
                                                 <th id="google" class="text-center align-middle">Google</th>
                                                 <th id="resume" class="text-center align-middle">Resume</th>
+                                                <th id="field_id" class="text-center align-middle">Filed</th>
                                                 <th id="password" class="text-center align-middle d-none">password</th>
                                                 <th id="password_confirmation" class="text-center align-middle d-none">password_confirmation</th>
                                                 <th></th>
@@ -42,7 +43,7 @@
                                             <tr>
                                                 <td>
                                                 @if(isset($item['image']) && $item['image'])
-                                                <img src="{{ asset($item->image) }}" alt="contact" width="60" height="60" />
+                                                <img src="{{ asset('images/users/' . $item->image) }}" alt="contact" width="60" height="60" />
                                                 @else
                                                 <img src="{{ URL::asset('images/default.jpg') }}" alt="contact" width="60" height="60">
                                                 @endif
@@ -55,6 +56,7 @@
                                                 <td class="text-center align-middle">{{ $item['linkedin'] }}</td>
                                                 <td class="text-center align-middle">{{ $item['google'] }}</td>
                                                 <td class="text-center align-middle">{{ $item['resume'] }}</td>
+                                                <td class="text-center align-middle">{{ $item->field->name }}</td>
                                                 <td class="text-center align-middle">
                                                     <button class="btn btn-warning text-white editBtn same-width">
                                                         <i class="fa fa-edit"></i>

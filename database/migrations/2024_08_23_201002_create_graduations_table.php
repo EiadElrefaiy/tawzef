@@ -15,6 +15,8 @@ class CreateGraduationsTable extends Migration
     {
         Schema::create('graduations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('field_id')->nullable();
+            $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');
             $table->string('email')->unique();
             $table->string('name');
             $table->string('address')->nullable();
@@ -26,8 +28,6 @@ class CreateGraduationsTable extends Migration
             $table->string('image')->nullable();
             $table->string('password');
             $table->timestamps();
-
-
         });
     }
 

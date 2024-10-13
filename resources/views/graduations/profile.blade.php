@@ -25,17 +25,21 @@
 	            		<div class="row no-padd">
 						<div class="detail pannel-footer">
 							<div class="col-md-5 col-sm-5">
-								<ul class="detail-footer-social">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								</ul>
+							<ul class="detail-footer-social">
+                                    <li><a href="{{auth('graduations')->user()->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="{{auth('graduations')->user()->google}}"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="{{auth('graduations')->user()->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
 							</div>
+
 							<div class="col-md-7 col-sm-7">
 								<div class="detail-pannel-footer-btn pull-left">
-									<a href="#" class="footer-btn blu-btn" title=""><i class="ti-download mrg-r-5"></i> Download CV</a></div>
+									<a href="{{ asset('resumes/' . auth('graduations')->user()->resume) }}" class="footer-btn blu-btn" download title="Download Resume">
+										<i class="ti-download mrg-r-5"></i> Download CV
+									</a>
+								</div>
 							</div>
+							
 						</div>
 					</div>
 						

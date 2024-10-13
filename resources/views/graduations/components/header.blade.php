@@ -17,7 +17,7 @@
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 
                         <li><a href="graduate-home.html">لوحة التحكم</a></li>
-                        <li><a href="browse-jobs.html">بحث الوظائف</a></li>
+                        <li><a href="{{route('graduation.browse.jobs')}}">بحث الوظائف</a></li>
                         <li><a href="field-jobs.html">وظائف تناسب مجالاتك</a></li>
                         <li><a href="graduate-cv.html">الملف الشخصي</a></li>
                     </ul>
@@ -30,11 +30,11 @@
                                 </button>
                             <ul class='dropdown-menu'>
                                 <li>
-                                    <a href="graduate-cv.html"> <i class="fa fa-cogs"></i> الملف الشخصي </a>
-                                    <a href="complete-resume.html"> <i class="fa fa-edit"></i> تعديل بياناتي </a>
+                                    <a href="{{route('graduation.profile')}}"> <i class="fa fa-cogs"></i> الملف الشخصي </a>
+                                    <a href="{{route('graduation.info')}}"> <i class="fa fa-edit"></i> تعديل بياناتي </a>
                                     <a href="applied-jobs.html"> <i class="fa fa-address-card"></i> الوظائف المقدم عليها </a>
                                     <div class="divider"></div>
-                                    <a href="#"> <i class="fa fa-sign-out"></i> تسجيل الخروج </a>
+                                    <a href="{{ route('graduation.logout') }}"> <i class="fa fa-sign-out"></i> تسجيل الخروج </a>
                                 </li>
                             </ul>
                         </div>

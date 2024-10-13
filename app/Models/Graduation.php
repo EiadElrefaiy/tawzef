@@ -15,7 +15,7 @@ class Graduation extends Authenticatable
     protected $table = 'graduations';
 
     protected $fillable = [
-        'email', 'password', 'name', 'address', 'phone', 'facebook', 'google', 'linkedin', 'resume'
+        'email', 'password', 'name', 'address', 'phone', 'facebook', 'google', 'linkedin', 'resume' , 'field_id'
     ];
 
     public function faculty()
@@ -42,6 +42,11 @@ class Graduation extends Authenticatable
     public function skills()
     {
         return $this->hasMany(Skill::class);
+    }
+
+    public function field()
+    {
+        return $this->belongsTo(Field::class);
     }
 
 }
